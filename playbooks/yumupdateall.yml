@@ -1,0 +1,11 @@
+---
+- name: Update packages on remote servers
+  hosts: all
+  become: yes  # This allows the playbook to run with elevated privileges (sudo)
+
+  tasks:
+    - name: Update packages using dnf
+      dnf:
+        name: '*'
+        state: latest
+
